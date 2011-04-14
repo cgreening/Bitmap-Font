@@ -1,0 +1,365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83A231B913577E9D003C362B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A231B813577E9D003C362B /* UIKit.framework */; };
+		83A231BB13577E9D003C362B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A231BA13577E9D003C362B /* Foundation.framework */; };
+		83A231BD13577E9D003C362B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A231BC13577E9D003C362B /* CoreGraphics.framework */; };
+		83A231BF13577E9D003C362B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A231BE13577E9D003C362B /* QuartzCore.framework */; };
+		83A231C113577E9D003C362B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A231C013577E9D003C362B /* OpenGLES.framework */; };
+		83A231C713577E9D003C362B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83A231C513577E9D003C362B /* InfoPlist.strings */; };
+		83A231CA13577E9D003C362B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A231C913577E9D003C362B /* main.m */; };
+		83A231CD13577E9D003C362B /* BitmapFontsAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A231CC13577E9D003C362B /* BitmapFontsAppDelegate.mm */; };
+		83A231D013577E9D003C362B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A231CE13577E9D003C362B /* MainWindow.xib */; };
+		83A231D713577E9D003C362B /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A231D613577E9D003C362B /* EAGLView.m */; };
+		83A231DA13577E9D003C362B /* BitmapFontsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A231D913577E9D003C362B /* BitmapFontsViewController.mm */; };
+		83A231DD13577E9D003C362B /* BitmapFontsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A231DB13577E9D003C362B /* BitmapFontsViewController.xib */; };
+		83A231E513577F01003C362B /* Shader_texture.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 83A231E313577F01003C362B /* Shader_texture.fsh */; };
+		83A231E613577F01003C362B /* Shader_texture.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 83A231E413577F01003C362B /* Shader_texture.vsh */; };
+		83A231EA13577F26003C362B /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 83A231E813577F26003C362B /* font.fnt */; };
+		83A231EB13577F26003C362B /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A231E913577F26003C362B /* font.png */; };
+		83A231ED13577F61003C362B /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A231EC13577F61003C362B /* texture.png */; };
+		83A231FD13578085003C362B /* esShader.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A231F813578085003C362B /* esShader.c */; };
+		83A231FE13578085003C362B /* esShapes.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A231F913578085003C362B /* esShapes.c */; };
+		83A231FF13578085003C362B /* esTransform.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A231FA13578085003C362B /* esTransform.c */; };
+		83A2320013578085003C362B /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A231FB13578085003C362B /* esUtil.c */; };
+		83A23203135780BE003C362B /* texture_support.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A23202135780BE003C362B /* texture_support.mm */; };
+		83A232061357836E003C362B /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83A232051357836D003C362B /* Font.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		83A231B413577E9D003C362B /* BitmapFonts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitmapFonts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83A231B813577E9D003C362B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		83A231BA13577E9D003C362B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83A231BC13577E9D003C362B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		83A231BE13577E9D003C362B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		83A231C013577E9D003C362B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		83A231C413577E9D003C362B /* BitmapFonts-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BitmapFonts-Info.plist"; sourceTree = "<group>"; };
+		83A231C613577E9D003C362B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83A231C813577E9D003C362B /* BitmapFonts-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BitmapFonts-Prefix.pch"; sourceTree = "<group>"; };
+		83A231C913577E9D003C362B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83A231CB13577E9D003C362B /* BitmapFontsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitmapFontsAppDelegate.h; sourceTree = "<group>"; };
+		83A231CC13577E9D003C362B /* BitmapFontsAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BitmapFontsAppDelegate.mm; sourceTree = "<group>"; };
+		83A231CF13577E9D003C362B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		83A231D513577E9D003C362B /* EAGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		83A231D613577E9D003C362B /* EAGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		83A231D813577E9D003C362B /* BitmapFontsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitmapFontsViewController.h; sourceTree = "<group>"; };
+		83A231D913577E9D003C362B /* BitmapFontsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BitmapFontsViewController.mm; sourceTree = "<group>"; };
+		83A231DC13577E9D003C362B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BitmapFontsViewController.xib; sourceTree = "<group>"; };
+		83A231E313577F01003C362B /* Shader_texture.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader_texture.fsh; path = Shaders/Shader_texture.fsh; sourceTree = "<group>"; };
+		83A231E413577F01003C362B /* Shader_texture.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader_texture.vsh; path = Shaders/Shader_texture.vsh; sourceTree = "<group>"; };
+		83A231E813577F26003C362B /* font.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = font.fnt; sourceTree = "<group>"; };
+		83A231E913577F26003C362B /* font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font.png; sourceTree = "<group>"; };
+		83A231EC13577F61003C362B /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
+		83A231F813578085003C362B /* esShader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShader.c; sourceTree = "<group>"; };
+		83A231F913578085003C362B /* esShapes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShapes.c; sourceTree = "<group>"; };
+		83A231FA13578085003C362B /* esTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esTransform.c; sourceTree = "<group>"; };
+		83A231FB13578085003C362B /* esUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esUtil.c; sourceTree = "<group>"; };
+		83A231FC13578085003C362B /* esUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esUtil.h; sourceTree = "<group>"; };
+		83A23201135780BE003C362B /* texture_support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = texture_support.h; sourceTree = "<group>"; };
+		83A23202135780BE003C362B /* texture_support.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = texture_support.mm; sourceTree = "<group>"; };
+		83A232041357836D003C362B /* Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Font.h; sourceTree = "<group>"; };
+		83A232051357836D003C362B /* Font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83A231B113577E9D003C362B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83A231B913577E9D003C362B /* UIKit.framework in Frameworks */,
+				83A231BB13577E9D003C362B /* Foundation.framework in Frameworks */,
+				83A231BD13577E9D003C362B /* CoreGraphics.framework in Frameworks */,
+				83A231BF13577E9D003C362B /* QuartzCore.framework in Frameworks */,
+				83A231C113577E9D003C362B /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83A231A913577E9D003C362B = {
+			isa = PBXGroup;
+			children = (
+				83A231F713578074003C362B /* esUtils */,
+				83A231E713577F0D003C362B /* Fonts */,
+				83A231C213577E9D003C362B /* BitmapFonts */,
+				83A231B713577E9D003C362B /* Frameworks */,
+				83A231B513577E9D003C362B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83A231B513577E9D003C362B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83A231B413577E9D003C362B /* BitmapFonts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83A231B713577E9D003C362B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83A231B813577E9D003C362B /* UIKit.framework */,
+				83A231BA13577E9D003C362B /* Foundation.framework */,
+				83A231BC13577E9D003C362B /* CoreGraphics.framework */,
+				83A231BE13577E9D003C362B /* QuartzCore.framework */,
+				83A231C013577E9D003C362B /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83A231C213577E9D003C362B /* BitmapFonts */ = {
+			isa = PBXGroup;
+			children = (
+				83A232041357836D003C362B /* Font.h */,
+				83A232051357836D003C362B /* Font.cpp */,
+				83A23201135780BE003C362B /* texture_support.h */,
+				83A23202135780BE003C362B /* texture_support.mm */,
+				83A231E313577F01003C362B /* Shader_texture.fsh */,
+				83A231E413577F01003C362B /* Shader_texture.vsh */,
+				83A231CB13577E9D003C362B /* BitmapFontsAppDelegate.h */,
+				83A231CC13577E9D003C362B /* BitmapFontsAppDelegate.mm */,
+				83A231CE13577E9D003C362B /* MainWindow.xib */,
+				83A231D513577E9D003C362B /* EAGLView.h */,
+				83A231D613577E9D003C362B /* EAGLView.m */,
+				83A231D813577E9D003C362B /* BitmapFontsViewController.h */,
+				83A231D913577E9D003C362B /* BitmapFontsViewController.mm */,
+				83A231DB13577E9D003C362B /* BitmapFontsViewController.xib */,
+				83A231C313577E9D003C362B /* Supporting Files */,
+			);
+			path = BitmapFonts;
+			sourceTree = "<group>";
+		};
+		83A231C313577E9D003C362B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83A231EC13577F61003C362B /* texture.png */,
+				83A231C413577E9D003C362B /* BitmapFonts-Info.plist */,
+				83A231C513577E9D003C362B /* InfoPlist.strings */,
+				83A231C813577E9D003C362B /* BitmapFonts-Prefix.pch */,
+				83A231C913577E9D003C362B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83A231E713577F0D003C362B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				83A231E813577F26003C362B /* font.fnt */,
+				83A231E913577F26003C362B /* font.png */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		83A231F713578074003C362B /* esUtils */ = {
+			isa = PBXGroup;
+			children = (
+				83A231F813578085003C362B /* esShader.c */,
+				83A231F913578085003C362B /* esShapes.c */,
+				83A231FA13578085003C362B /* esTransform.c */,
+				83A231FB13578085003C362B /* esUtil.c */,
+				83A231FC13578085003C362B /* esUtil.h */,
+			);
+			name = esUtils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83A231B313577E9D003C362B /* BitmapFonts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83A231E013577E9D003C362B /* Build configuration list for PBXNativeTarget "BitmapFonts" */;
+			buildPhases = (
+				83A231B013577E9D003C362B /* Sources */,
+				83A231B113577E9D003C362B /* Frameworks */,
+				83A231B213577E9D003C362B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BitmapFonts;
+			productName = BitmapFonts;
+			productReference = 83A231B413577E9D003C362B /* BitmapFonts.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83A231AB13577E9D003C362B /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 83A231AE13577E9D003C362B /* Build configuration list for PBXProject "BitmapFonts" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 83A231A913577E9D003C362B;
+			productRefGroup = 83A231B513577E9D003C362B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83A231B313577E9D003C362B /* BitmapFonts */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83A231B213577E9D003C362B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83A231E513577F01003C362B /* Shader_texture.fsh in Resources */,
+				83A231E613577F01003C362B /* Shader_texture.vsh in Resources */,
+				83A231C713577E9D003C362B /* InfoPlist.strings in Resources */,
+				83A231D013577E9D003C362B /* MainWindow.xib in Resources */,
+				83A231DD13577E9D003C362B /* BitmapFontsViewController.xib in Resources */,
+				83A231EA13577F26003C362B /* font.fnt in Resources */,
+				83A231EB13577F26003C362B /* font.png in Resources */,
+				83A231ED13577F61003C362B /* texture.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83A231B013577E9D003C362B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83A231CA13577E9D003C362B /* main.m in Sources */,
+				83A231CD13577E9D003C362B /* BitmapFontsAppDelegate.mm in Sources */,
+				83A231D713577E9D003C362B /* EAGLView.m in Sources */,
+				83A231DA13577E9D003C362B /* BitmapFontsViewController.mm in Sources */,
+				83A231FD13578085003C362B /* esShader.c in Sources */,
+				83A231FE13578085003C362B /* esShapes.c in Sources */,
+				83A231FF13578085003C362B /* esTransform.c in Sources */,
+				83A2320013578085003C362B /* esUtil.c in Sources */,
+				83A23203135780BE003C362B /* texture_support.mm in Sources */,
+				83A232061357836E003C362B /* Font.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		83A231C513577E9D003C362B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83A231C613577E9D003C362B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		83A231CE13577E9D003C362B /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83A231CF13577E9D003C362B /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		83A231DB13577E9D003C362B /* BitmapFontsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83A231DC13577E9D003C362B /* en */,
+			);
+			name = BitmapFontsViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83A231DE13577E9D003C362B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83A231DF13577E9D003C362B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		83A231E113577E9D003C362B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BitmapFonts/BitmapFonts-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "BitmapFonts/BitmapFonts-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		83A231E213577E9D003C362B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BitmapFonts/BitmapFonts-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "BitmapFonts/BitmapFonts-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83A231AE13577E9D003C362B /* Build configuration list for PBXProject "BitmapFonts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83A231DE13577E9D003C362B /* Debug */,
+				83A231DF13577E9D003C362B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83A231E013577E9D003C362B /* Build configuration list for PBXNativeTarget "BitmapFonts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83A231E113577E9D003C362B /* Debug */,
+				83A231E213577E9D003C362B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83A231AB13577E9D003C362B /* Project object */;
+}
