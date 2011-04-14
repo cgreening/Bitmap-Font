@@ -24,12 +24,12 @@
 		83A231EA13577F26003C362B /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 83A231E813577F26003C362B /* font.fnt */; };
 		83A231EB13577F26003C362B /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A231E913577F26003C362B /* font.png */; };
 		83A231ED13577F61003C362B /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A231EC13577F61003C362B /* texture.png */; };
-		83A231FD13578085003C362B /* esShader.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A231F813578085003C362B /* esShader.c */; };
-		83A231FE13578085003C362B /* esShapes.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A231F913578085003C362B /* esShapes.c */; };
-		83A231FF13578085003C362B /* esTransform.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A231FA13578085003C362B /* esTransform.c */; };
-		83A2320013578085003C362B /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A231FB13578085003C362B /* esUtil.c */; };
 		83A23203135780BE003C362B /* texture_support.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A23202135780BE003C362B /* texture_support.mm */; };
 		83A232061357836E003C362B /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83A232051357836D003C362B /* Font.cpp */; };
+		83A2322513579815003C362B /* esShader.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A2322013579815003C362B /* esShader.c */; };
+		83A2322613579815003C362B /* esShapes.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A2322113579815003C362B /* esShapes.c */; };
+		83A2322713579815003C362B /* esTransform.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A2322213579815003C362B /* esTransform.c */; };
+		83A2322813579815003C362B /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 83A2322313579815003C362B /* esUtil.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,15 +56,15 @@
 		83A231E813577F26003C362B /* font.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = font.fnt; sourceTree = "<group>"; };
 		83A231E913577F26003C362B /* font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font.png; sourceTree = "<group>"; };
 		83A231EC13577F61003C362B /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
-		83A231F813578085003C362B /* esShader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShader.c; sourceTree = "<group>"; };
-		83A231F913578085003C362B /* esShapes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShapes.c; sourceTree = "<group>"; };
-		83A231FA13578085003C362B /* esTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esTransform.c; sourceTree = "<group>"; };
-		83A231FB13578085003C362B /* esUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esUtil.c; sourceTree = "<group>"; };
-		83A231FC13578085003C362B /* esUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esUtil.h; sourceTree = "<group>"; };
 		83A23201135780BE003C362B /* texture_support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = texture_support.h; sourceTree = "<group>"; };
 		83A23202135780BE003C362B /* texture_support.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = texture_support.mm; sourceTree = "<group>"; };
 		83A232041357836D003C362B /* Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Font.h; sourceTree = "<group>"; };
 		83A232051357836D003C362B /* Font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
+		83A2322013579815003C362B /* esShader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = esShader.c; path = ESUtils/esShader.c; sourceTree = "<group>"; };
+		83A2322113579815003C362B /* esShapes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = esShapes.c; path = ESUtils/esShapes.c; sourceTree = "<group>"; };
+		83A2322213579815003C362B /* esTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = esTransform.c; path = ESUtils/esTransform.c; sourceTree = "<group>"; };
+		83A2322313579815003C362B /* esUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = esUtil.c; path = ESUtils/esUtil.c; sourceTree = "<group>"; };
+		83A2322413579815003C362B /* esUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = esUtil.h; path = ESUtils/esUtil.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,11 +160,11 @@
 		83A231F713578074003C362B /* esUtils */ = {
 			isa = PBXGroup;
 			children = (
-				83A231F813578085003C362B /* esShader.c */,
-				83A231F913578085003C362B /* esShapes.c */,
-				83A231FA13578085003C362B /* esTransform.c */,
-				83A231FB13578085003C362B /* esUtil.c */,
-				83A231FC13578085003C362B /* esUtil.h */,
+				83A2322013579815003C362B /* esShader.c */,
+				83A2322113579815003C362B /* esShapes.c */,
+				83A2322213579815003C362B /* esTransform.c */,
+				83A2322313579815003C362B /* esUtil.c */,
+				83A2322413579815003C362B /* esUtil.h */,
 			);
 			name = esUtils;
 			sourceTree = "<group>";
@@ -238,12 +238,12 @@
 				83A231CD13577E9D003C362B /* BitmapFontsAppDelegate.mm in Sources */,
 				83A231D713577E9D003C362B /* EAGLView.m in Sources */,
 				83A231DA13577E9D003C362B /* BitmapFontsViewController.mm in Sources */,
-				83A231FD13578085003C362B /* esShader.c in Sources */,
-				83A231FE13578085003C362B /* esShapes.c in Sources */,
-				83A231FF13578085003C362B /* esTransform.c in Sources */,
-				83A2320013578085003C362B /* esUtil.c in Sources */,
 				83A23203135780BE003C362B /* texture_support.mm in Sources */,
 				83A232061357836E003C362B /* Font.cpp in Sources */,
+				83A2322513579815003C362B /* esShader.c in Sources */,
+				83A2322613579815003C362B /* esShapes.c in Sources */,
+				83A2322713579815003C362B /* esTransform.c in Sources */,
+				83A2322813579815003C362B /* esUtil.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +358,7 @@
 				83A231E213577E9D003C362B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
