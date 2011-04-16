@@ -72,11 +72,11 @@ enum {
 	// create the font
   NSString *path = [[NSBundle mainBundle] pathForResource:@"font" ofType:@"fnt"];
   font = new Font([path UTF8String]);
+	// load up the fonr texture
+	textureId=loadTexture("font.png", -1, -1);
   // create a string
   numberIndices = font->createVerticesAndTexCoordsForString("CMG Research Ltd", &verticeAndTextureCoords, &indices, 50);
   textWidth=font->getWidthOfString("CMG Research Ltd", 50);
-	// load up the fonr texture
-	textureId=loadTexture("font.png", -1, -1);
   
   // Use of CADisplayLink requires iOS version 3.1 or greater.
 	// The NSTimer object is used as fallback when it isn't available.

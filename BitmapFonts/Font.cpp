@@ -136,7 +136,13 @@ float Font::getWidthOfString(const std::string &str, float height) {
       x += kerning[c][str[i-1]];
     }
     const Character &cdef = characters[c];
-    x+=cdef.xAdvance;
+    // special handling for last character
+    if(i<str.size()-1) {
+      x+=cdef.xAdvance;
+    } else {
+      x+=cdef.xOffset+cdef.width;
+    }
   }
-  return x*height/(float) lineHeight;
+  float scale=height/(float)lineHeight;
+  return scale*x;
 }
