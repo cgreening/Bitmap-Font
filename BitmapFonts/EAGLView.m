@@ -94,10 +94,6 @@
         
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderbuffer);
         
-		glGenRenderbuffers(1, &depthbuffer);
-		glBindRenderbuffer(GL_RENDERBUFFER, depthbuffer);
-		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24_OES, framebufferWidth, framebufferHeight);
-		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthbuffer);				
 		
         if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
             NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));
@@ -121,12 +117,6 @@
             glDeleteRenderbuffers(1, &colorRenderbuffer);
             colorRenderbuffer = 0;
         }
-		
-		if(depthbuffer)
-		{
-			glDeleteRenderbuffers(1, &depthbuffer);
-			depthbuffer = 0;
-		}
     }
 }
 

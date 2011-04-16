@@ -40,50 +40,50 @@ enum {
 
 - (void)awakeFromNib
 {
-    EAGLContext *aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+  EAGLContext *aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     
-    if (!aContext)
-    {
-        aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-    }
+  if (!aContext)
+  {
+    aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+  }
     
-    if (!aContext)
-        NSLog(@"Failed to create ES context");
-    else if (![EAGLContext setCurrentContext:aContext])
-        NSLog(@"Failed to set ES context current");
+  if (!aContext)
+    NSLog(@"Failed to create ES context");
+  else if (![EAGLContext setCurrentContext:aContext])
+    NSLog(@"Failed to set ES context current");
     
 	self.context = aContext;
 	[aContext release];
 	
-    [(EAGLView *)self.view setContext:context];
-    [(EAGLView *)self.view setFramebuffer];
+  [(EAGLView *)self.view setContext:context];
+  [(EAGLView *)self.view setFramebuffer];
     
-    if ([context API] == kEAGLRenderingAPIOpenGLES2) {
-        [self loadShaders];
-		[self setupView];
+  if ([context API] == kEAGLRenderingAPIOpenGLES2) {
+    [self loadShaders];
 	}
     
-    animating = FALSE;
-    displayLinkSupported = FALSE;
-    animationFrameInterval = 1;
-    displayLink = nil;
-    animationTimer = nil;
+  [self setupView];
+  animating = FALSE;
+  displayLinkSupported = FALSE;
+  animationFrameInterval = 1;
+  displayLink = nil;
+  animationTimer = nil;
 	
 	// create the font
   NSString *path = [[NSBundle mainBundle] pathForResource:@"font" ofType:@"fnt"];
   font = new Font([path UTF8String]);
   // create a string
-  numberIndices = font->createVerticesAndTexCoordsForString("CMG Research Ltd", &verticeAndTextureCoords, &indices, 0.5);
-  textWidth=font->getWidthOfString("CMG Research Ltd", 0.5);
+  numberIndices = font->createVerticesAndTexCoordsForString("CMG Research Ltd", &verticeAndTextureCoords, &indices, 50);
+  textWidth=font->getWidthOfString("CMG Research Ltd", 50);
 	// load up the fonr texture
 	textureId=loadTexture("font.png", -1, -1);
   
-    // Use of CADisplayLink requires iOS version 3.1 or greater.
+  // Use of CADisplayLink requires iOS version 3.1 or greater.
 	// The NSTimer object is used as fallback when it isn't available.
-    NSString *reqSysVer = @"3.1";
-    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
-    if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
-        displayLinkSupported = TRUE;
+  NSString *reqSysVer = @"3.1";
+  NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+  if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
+    displayLinkSupported = TRUE;
 }
 
 - (void)dealloc
@@ -200,76 +200,83 @@ enum {
 - (void)drawFrame
 {	
     [(EAGLView *)self.view setFramebuffer];
-    
-	glEnable(GL_DEPTH_TEST);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT);
 	
-	// rotate the objects
-	angle-=1.0;
+    // rotate the objects
+    angle-=1.0;
     
     if ([context API] == kEAGLRenderingAPIOpenGLES2)
     {
-    // reset our modelview to identity
-		esMatrixLoadIdentity(&modelView);
-		// translate back into the screen by 6 units and down by 1 unit
-		esTranslate(&modelView, 0.0f, 0.0f, -4.0f);
-		// rotate the triangle
-		esRotate(&modelView, angle, 1.0, 1.0, 0.0);
-    esTranslate(&modelView, -textWidth/2, 0.0f, 0.0f);
-		// tell the GPU we want to use our program
-		glUseProgram(simpleProgram);
-		// create our new mvp matrix
-		esMatrixMultiply(&mvp, &modelView, &projection );
-		// set the mvp uniform
-		glUniformMatrix4fv(uniformMvp, 1, GL_FALSE, (GLfloat*) &mvp.m[0][0] );
-		// set the texture uniform
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, textureId);
-		glUniform1i(uniformTexture, 0);
-		// set the position vertex attribute with our triangle's vertices
-		glVertexAttribPointer(ATTRIB_POSITION, 2, GL_FLOAT, false, sizeof(float)*4, verticeAndTextureCoords);
-		glEnableVertexAttribArray(ATTRIB_POSITION);
-		// set the texture coords
-		glVertexAttribPointer(ATTRIB_TEXCOORD, 2, GL_FLOAT, false, sizeof(float)*4, verticeAndTextureCoords+2);
-		glEnableVertexAttribArray(ATTRIB_TEXCOORD);
-
-		
-        // Validate program before drawing. This is a good check, but only really necessary in a debug build.
-        // DEBUG macro must be defined in your debug configurations if that's not already the case.
-#if defined(DEBUG)
-        if (![self validateProgram:simpleProgram])
-        {
-            NSLog(@"Failed to validate program: %d", simpleProgram);
-            return;
-        }
-#endif
-		// and finally tell the GPU to draw our triangle!
-      glDisable(GL_DEPTH_TEST);
+      // ES2.0 rendering
+      esMatrixLoadIdentity(&modelView);                   // reset our modelview to identity
+      esRotate(&modelView, angle, 0.0, 0.0, 1.0);         // rotate the text
+      esTranslate(&modelView, -textWidth/2, 0.0f, 0.0f);  // center the text
+      // flip the text right way up
+      esScale(&modelView, 1.0, -1.0, 1.0);
+      glUseProgram(simpleProgram);                        // tell the GPU we want to use our program
+      esMatrixMultiply(&mvp, &modelView, &projection );   // create our new mvp matrix
+      glUniformMatrix4fv(uniformMvp, 1, GL_FALSE, (GLfloat*) &mvp.m[0][0] ); // set the mvp uniform
+      glActiveTexture(GL_TEXTURE0);
+      glBindTexture(GL_TEXTURE_2D, textureId);  // bind our texture to texture0
+      glUniform1i(uniformTexture, 0);           // tell the program to use texture 0
+      // set the position vertex attribute with our text's vertices
+      glVertexAttribPointer(ATTRIB_POSITION, 2, GL_FLOAT, false, sizeof(float)*4, verticeAndTextureCoords);
+      glEnableVertexAttribArray(ATTRIB_POSITION);
+      // set the texture coords
+      glVertexAttribPointer(ATTRIB_TEXCOORD, 2, GL_FLOAT, false, sizeof(float)*4, verticeAndTextureCoords+2);
+      glEnableVertexAttribArray(ATTRIB_TEXCOORD);
+      // and finally tell the GPU to draw our triangles!
       glEnable(GL_BLEND);
       glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
       glDrawElements(GL_TRIANGLES, numberIndices, GL_UNSIGNED_SHORT, indices);
       glDisable(GL_BLEND);
-      glEnable(GL_DEPTH_TEST);
     }
     else
     {
-		NSAssert(NO, @"You'll need to add your own code to do the ES 1.0 rendering...");
+      glMatrixMode(GL_MODELVIEW);
+      glLoadIdentity();
+      glEnable(GL_BLEND);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+      glEnable(GL_TEXTURE_2D);
+      glEnableClientState(GL_VERTEX_ARRAY);
+      glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+      glBindTexture(GL_TEXTURE_2D, textureId);
+      glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+      glVertexPointer(2, GL_FLOAT, sizeof(GL_FLOAT)*4, verticeAndTextureCoords);
+      glTexCoordPointer(2, GL_FLOAT, sizeof(GL_FLOAT)*4, verticeAndTextureCoords+2);
+      glRotatef(angle, 0.0, 0.0, 1.0);         // rotate the text
+      glTranslatef(-textWidth/2, 0.0f, 0.0f);  // center the text
+      // flip the text right way up - not this could be removed by modifiying the way the vertices are generated
+      glScalef(1.0, -1.0, 1.0);
+      glDrawElements(GL_TRIANGLES, numberIndices, GL_UNSIGNED_SHORT, indices);
+      glDisable(GL_BLEND);
+      glDisable(GL_TEXTURE_2D);
+      glDisableClientState(GL_VERTEX_ARRAY_POINTER);
+      glDisableClientState(GL_TEXTURE_COORD_ARRAY_POINTER);
+      glBindTexture(GL_TEXTURE_2D, 0);
     }
 	
     [(EAGLView *)self.view presentFramebuffer];
 }
 
+
+
 - (void) setupView {
-	const GLfloat zNear = 1, zFar = 600, fieldOfView = 40*M_PI/180.0;
-	
-	esMatrixLoadIdentity(&projection);
-	GLfloat size = zNear * tanf(fieldOfView / 2.0); 
-	esFrustum(&projection, -size, size, -size / (self.view.frame.size.width / self.view.frame.size.height), size / (self.view.frame.size.width / self.view.frame.size.height), zNear, zFar); 
-	
-	esMatrixLoadIdentity(&modelView);
-	
-	glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);  
+  if ([context API] == kEAGLRenderingAPIOpenGLES2)
+  {
+    esMatrixLoadIdentity(&projection);
+    esOrtho(&projection, -self.view.frame.size.width/2.0, self.view.frame.size.width/2.0, -self.view.frame.size.height/2.0, self.view.frame.size.height/2.0, -5, 1);
+    esMatrixLoadIdentity(&modelView);
+    glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);  
+  } else {
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrthof(-self.view.frame.size.width/2.0, self.view.frame.size.width/2.0, -self.view.frame.size.height/2.0, self.view.frame.size.height/2.0, -5, 1);  
+    glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);  
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+  }
 }
 
 - (void)didReceiveMemoryWarning
